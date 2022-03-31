@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rabbit.client", "rabbit-training\rabbit.client.csproj", "{F5445276-7430-4CC7-82BB-65828B27C753}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rabbit.server", "rabbit.server\rabbit.server.csproj", "{C4E2414B-298E-461C-8750-B7111BAB3C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rabbit.server", "rabbit.server\rabbit.server.csproj", "{C4E2414B-298E-461C-8750-B7111BAB3C71}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibraries", "ExternalLibraries", "{1FF0B077-7FD5-44E1-A9B9-6E823404EDEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETUtilities", "NETUtilities\NETUtilities.csproj", "{9F50BFF4-11C8-4A7B-9E91-9855F82362D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETUtilities", "NETUtilities\NETUtilities.csproj", "{9F50BFF4-11C8-4A7B-9E91-9855F82362D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rabbit.client", "rabbit.client\rabbit.client.csproj", "{C44A67D7-2767-436D-800E-4BD1B78DD839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F5445276-7430-4CC7-82BB-65828B27C753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5445276-7430-4CC7-82BB-65828B27C753}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5445276-7430-4CC7-82BB-65828B27C753}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5445276-7430-4CC7-82BB-65828B27C753}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4E2414B-298E-461C-8750-B7111BAB3C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4E2414B-298E-461C-8750-B7111BAB3C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4E2414B-298E-461C-8750-B7111BAB3C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,6 +25,10 @@ Global
 		{9F50BFF4-11C8-4A7B-9E91-9855F82362D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F50BFF4-11C8-4A7B-9E91-9855F82362D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F50BFF4-11C8-4A7B-9E91-9855F82362D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C44A67D7-2767-436D-800E-4BD1B78DD839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C44A67D7-2767-436D-800E-4BD1B78DD839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C44A67D7-2767-436D-800E-4BD1B78DD839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C44A67D7-2767-436D-800E-4BD1B78DD839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
