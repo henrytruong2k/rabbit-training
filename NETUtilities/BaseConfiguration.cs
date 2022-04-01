@@ -19,6 +19,7 @@ namespace rabbit.client
         public static readonly string RabbitMQPassword = _appSettings["RabbitMQ:Password"];
         public static readonly string RabbitMQVirtualHost = _appSettings["RabbitMQ:VirtualHost"] ?? "/";
         public static readonly string RabbitMQQueueName = _appSettings["RabbitMQ:QueueName"];
+        public static readonly string Log4NetConfigurationPath = _appSettings["Log4NetConfigurationPath"];
 
         public static IConfiguration GetConfiguration() => _appSettings;
     }

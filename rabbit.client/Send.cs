@@ -2,18 +2,14 @@
 using RabbitMQ.Client;
 using System.Text;
 using rabbit.client;
+using NETUtilities;
 
 class Send
 {
     public static void Main()
     {
-        var factory = new ConnectionFactory();
-        factory.UserName = BaseConfiguration.RabbitMQUsername;
-        factory.Password = BaseConfiguration.RabbitMQPassword;
-        factory.VirtualHost = BaseConfiguration.RabbitMQVirtualHost;
-        factory.HostName = BaseConfiguration.RabbitMQHosts;
-        using (var connection = factory.CreateConnection())
-        using (var channel = connection.CreateModel())
+        using (var connection = MQManager.GetConnection())
+        using (var channel = MQManager.GetConnection().CreateModel())
         {
             channel.QueueDeclare(queue: BaseConfiguration.RabbitMQQueueName,
                                  durable: false,
