@@ -1,4 +1,6 @@
 ﻿using NETUtilities;
+using Microsoft.Extensions.Logging;
+using NETUtilities.Utils;
 using rabbit.client;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -7,30 +9,14 @@ using System.Text;
 
 class Receive
 {
+    private static readonly ILogger _logger = LogUtil.CreateLogger();
     public static void Main()
     {
-        using (var connection = MQManager.GetConnection())
-        using (var channel = MQManager.GetConnection().CreateModel())
+        MQManager.CreateJsonConsumer(QueueActionType.Response, (fromChannel, lmid, functionName, body) =>
         {
-            channel.QueueDeclare(queue: BaseConfiguration.RabbitMQQueueName,
-                                 durable: false,
-                                 exclusive: false,
-                                 autoDelete: false,
-                                 arguments: null);
+            _logger.LogDebug($"{lmid}: to{fromChannel}+{QueueActionType.Response}+{functionName}");
+        });
 
-            var consumer = new EventingBasicConsumer(channel);
-            consumer.Received += (model, ea) =>
-            {
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine(" [x] Received {0}", message);
-            };
-            channel.BasicConsume(queue: BaseConfiguration.RabbitMQQueueName,
-                                 autoAck: true,
-                                 consumer: consumer);
-
-            Console.WriteLine(" Press [enter] to exit.");
-            Console.ReadLine();
-        }
+        _logger.LogDebug("Logged success!");
     }
 }

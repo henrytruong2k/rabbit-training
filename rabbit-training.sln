@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibraries", "Extern
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETUtilities", "NETUtilities\NETUtilities.csproj", "{9F50BFF4-11C8-4A7B-9E91-9855F82362D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rabbit.client", "rabbit.client\rabbit.client.csproj", "{C44A67D7-2767-436D-800E-4BD1B78DD839}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rabbit.client", "rabbit.client\rabbit.client.csproj", "{C44A67D7-2767-436D-800E-4BD1B78DD839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

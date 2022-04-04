@@ -3,31 +3,19 @@ using RabbitMQ.Client;
 using System.Text;
 using rabbit.client;
 using NETUtilities;
+using NETUtilities.Utils;
+using System.ComponentModel.DataAnnotations;
 
 class Send
 {
     public static void Main()
     {
-        using (var connection = MQManager.GetConnection())
-        using (var channel = MQManager.GetConnection().CreateModel())
-        {
-            channel.QueueDeclare(queue: BaseConfiguration.RabbitMQQueueName,
-                                 durable: false,
-                                 exclusive: false,
-                                 autoDelete: false,
-                                 arguments: null);
-
-            string message = "Hello ATG!";
-            var body = Encoding.UTF8.GetBytes(message);
-
-            channel.BasicPublish(exchange: "",
-                                 routingKey: BaseConfiguration.RabbitMQQueueName,
-                                 basicProperties: null,
-                                 body: body);
-            Console.WriteLine(" [x] Sent {0}", message);
-        }
-
-        Console.WriteLine(" Press [enter] to exit.");
-        Console.ReadLine();
+        string lmid = LogUtil.GenerateLMID();
+        MQManager.SendJsonRequest(lmid, Apps.TransactionService, "AccountBalanceInquiry", new AccountBalanceInquiryRequest() { AccountNumber = "1234488144544023" });
     }
+}
+
+public class AccountBalanceInquiryRequest
+{
+    public string AccountNumber { get; set; }
 }
