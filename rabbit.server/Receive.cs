@@ -16,7 +16,5 @@ class Receive
         {
             _logger.LogDebug($"{lmid}: to{fromChannel}+{QueueActionType.Response}+{functionName}");
         });
-
-        _logger.LogDebug("Logged success!");
     }
 }
