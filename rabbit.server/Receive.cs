@@ -12,9 +12,6 @@ class Receive
     private static readonly ILogger _logger = LogUtil.CreateLogger();
     public static void Main()
     {
-        MQManager.CreateJsonConsumer(QueueActionType.Response, (fromChannel, lmid, functionName, body) =>
-        {
-            _logger.LogDebug($"{lmid}: to{fromChannel}+{QueueActionType.Response}+{functionName}");
-        });
+        MQManager.CreateJsonConsumer(QueueActionType.Response, (fromChannel, lmid, functionName, body) => { });
     }
 }

@@ -122,30 +122,6 @@ public static class MQManager
             return false;
         }
     }
-
-    public static bool SendJsonResponse<T>(string lmid, Apps app, string functionName, ResponseDTO<T> responseDTO) where T : class
-    {
-        try
-        {
-            string queueName = $"{app}.{QueueActionType.Response}.{QueueFormat.Json}";
-            IModel channel = CreateProducer(app, QueueActionType.Response, QueueFormat.Json);
-            IBasicProperties properties = channel.CreateBasicProperties();
-            properties.MessageId = lmid;
-            properties.ReplyTo = BaseConfiguration.AppName;
-            properties.Headers = new Dictionary<string, object>
-            {
-                { "FunctionName", functionName }
-            };
-            _logger.LogDebug($"{lmid}: to{app}+{QueueActionType.Response}+{functionName}: RC: {responseDTO.ResponseCode}. Status: {responseDTO.Status}. Data: {DataMasking.MaskJson(responseDTO.Data)}");
-            channel.BasicPublish("", queueName, properties, JsonSerializer.SerializeToUtf8Bytes(responseDTO, JsonOption.SerializerOptions));
-            return true;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, $"{lmid}: Cannot send to: {app}+{QueueActionType.Response}");
-            return false;
-        }
-    }
 }
 
 public class RequestDTO<TRequest> where TRequest : class
